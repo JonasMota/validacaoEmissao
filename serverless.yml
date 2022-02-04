@@ -1,0 +1,37 @@
+service: auto-serverless-valida-emnissao
+
+
+provider:
+  deploymentBucket:
+    name: auto-valida-emissao
+    serverSideEncryption: AES256
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: ${opt:region, 'sa-east-1'}
+  stage: dev
+  stackName: validacao-teste-123
+
+
+functions:
+  validacaoEmissao:
+    handler: handlerValidacaoEmissao.validaEmissao
+    name: validacaoCriacao
+
+
+
+
+
+
+
+
+
+
+plugins:
+  - serverless-deployment-bucket
+  - serverless-offline
+
+
+
+
+
